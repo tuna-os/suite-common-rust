@@ -10,7 +10,7 @@ pub fn make_app(id: &str) -> gtk::Application {
 }
 
 /// Build a standard header bar with Open/Save buttons.
-pub fn make_header_bar() -> gtk::Box {
+pub fn make_header_bar() -> libadwaita::HeaderBar {
     let header = libadwaita::HeaderBar::new();
     let open_btn = gtk::Button::with_label("Open");
     header.pack_start(&open_btn);
