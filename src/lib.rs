@@ -4,24 +4,27 @@
 use libadwaita as adw;
 use gtk4::prelude::*;
 
-/// Create a standard GTK4 Application with the given ID.
-pub fn make_app(id: &str) -> gtk4::Application {
-    gtk4::Application::new(Some(id))
+/// Creates an adw::Application, which initialises libadwaita automatically.
+pub fn make_app(id: &str) -> adw::Application {
+    adw::Application::builder().application_id(id).build()
 }
 
-/// Build a standard header bar with Open/Save buttons.
+/// Build a standard header bar with hamburger menu.
 pub fn make_header_bar() -> adw::HeaderBar {
+    let menu = gtk4::gio::Menu::new();
+    menu.append(Some("About"), Some("app.about"));
+    let btn = gtk4::MenuButton::new();
+    btn.set_icon_name("open-menu-symbolic");
+    btn.set_menu_model(Some(&menu));
     let header = adw::HeaderBar::new();
-    header.pack_start(&gtk4::Button::with_label("Open"));
-    header.pack_end(&gtk4::Button::with_label("Save"));
+    header.pack_end(&btn);
     header
 }
 
-/// Build a centered formatting toolbar.
+/// Build a centered formatting toolbar with linked buttons.
 pub fn make_toolbar() -> gtk4::Box {
-    let toolbar = gtk4::Box::new(gtk4::Orientation::Horizontal, 4);
-    toolbar.set_halign(gtk4::Align::Center);
-    toolbar.add_css_class("toolbar");
+    let toolbar = gtk4::Box::new(gtk4::Orientation::Horizontal, 0);
+    toolbar.add_css_class("linked");
     for label in &["B", "I", "U"] {
         toolbar.append(&gtk4::ToggleButton::with_label(label));
     }
