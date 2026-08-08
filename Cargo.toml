@@ -6,7 +6,7 @@ description = "Shared GTK4/libadwaita scaffold for the tuna-os office suite (Rus
 
 [dependencies]
 gtk4 = { version = "0.9", package = "gtk4" }
-libadwaita = "0.7"
+libadwaita = "0.9"
 
 [lib]
 name = "suite_common_rs"
