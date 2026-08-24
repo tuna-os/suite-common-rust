@@ -1,3 +1,13 @@
+//! # suite-common-rust (DEPRECATED)
+//!
+//! ⚠️ **This standalone crate has been superseded.**
+//!
+//! The canonical `suite-common` implementation now lives in the
+//! [`gtk-office-suite`](https://github.com/tuna-os/gtk-office-suite) monorepo
+//! (`gtk-office-suite/suite-common/`).
+//!
+//! Do not add new dependencies on this crate. Use the monorepo version instead.
+
 // lib.rs — suite-common: shared GTK4/libadwaita scaffold.
 // SPDX-License-Identifier: GPL-3.0-or-later
 
