@@ -23,3 +23,10 @@
 suite-common = { git = "https://github.com/tuna-os/gtk-office-suite", package = "suite-common" }
 suite-common-core = { git = "https://github.com/tuna-os/gtk-office-suite", package = "suite-common-core" }
 ```
+
+## Testing
+
+```bash
+# Unit tests require GTK4 / libadwaita display environment
+cargo test
+```
