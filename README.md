@@ -15,6 +15,15 @@
 >
 > This repository is retained for historical reference only.
 
+## Overview & API Summary
+
+`suite-common-rust` (`suite_common_rs`) provides foundational GTK4 and libadwaita UI scaffolding routines:
+
+- `make_app(id: &str) -> adw::Application`: Constructs an `adw::Application` instance with automatic libadwaita initialization.
+- `make_header_bar() -> adw::HeaderBar`: Builds a standard header bar with an integrated hamburger menu (`About`).
+- `make_toolbar() -> gtk4::Box`: Builds a horizontal formatting toolbar with linked toggle buttons (`B`, `I`, `U`).
+- `is_dark_mode() -> bool`: Queries system color scheme preference via `adw::StyleManager`.
+
 ## Migration
 
 ```toml
@@ -24,9 +33,11 @@ suite-common = { git = "https://github.com/tuna-os/gtk-office-suite", package = 
 suite-common-core = { git = "https://github.com/tuna-os/gtk-office-suite", package = "suite-common-core" }
 ```
 
-## Testing
+## Testing & Contributing
 
 ```bash
-# Unit tests require GTK4 / libadwaita display environment
+# Unit tests require a GTK4 / libadwaita display environment
 cargo test
 ```
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines, local testing notes, and DCO requirements.
