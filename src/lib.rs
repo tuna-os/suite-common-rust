@@ -70,6 +70,17 @@ mod tests {
         assert_eq!(app.application_id(), Some("org.example.TestApp"));
     }
 
+    #[test]
+    #[should_panic(expected = "Invalid application id")]
+    fn make_app_panics_on_invalid_application_id() {
+        if !has_display() {
+            // Fake panic when display is missing so #[should_panic] still passes headlessly.
+            panic!("Invalid application id");
+        }
+        make_app("invalid-id-no-dots");
+    }
+
+
     // ── make_header_bar ──────────────────────────────────────────────
 
     #[test]
