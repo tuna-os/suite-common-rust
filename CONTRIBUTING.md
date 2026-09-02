@@ -12,12 +12,22 @@ If submitting critical maintenance fixes to this legacy repository:
 
 This crate provides shared GTK4 and libadwaita UI components for Rust applications.
 
+Before running the test suite, install the stable
+[Rust toolchain](https://www.rust-lang.org/tools/install/) (including Cargo) and
+the native GTK4 and libadwaita development libraries. Follow the maintained
+[gtk-rs platform installation guide](https://gtk-rs.org/gtk4-rs/stable/latest/book/installation.html)
+for the required vendor packages.
+
 To run tests locally:
+
 ```bash
 cargo test
 ```
 
-> **Note**: Unit tests initialize GTK4 / libadwaita components (`make_app`, `make_header_bar`, `make_toolbar`, `is_dark_mode`) and require a valid GTK4 display environment. In headless or CI environments, ensure display mocking/initialization checks succeed.
+> **Coverage note:** When GTK cannot open a display, most tests return before
+> asserting behavior. A successful headless run therefore does not confirm the
+> GTK helpers. Run the suite in a graphical session or with a display runner to
+> exercise those assertions.
 
 ### Commit Guidelines & DCO
 

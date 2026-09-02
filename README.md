@@ -35,9 +35,18 @@ suite-common-core = { git = "https://github.com/tuna-os/gtk-office-suite", packa
 
 ## Testing & Contributing
 
+Install the stable Rust toolchain (including Cargo) and the native GTK4 and
+libadwaita development libraries before building. The maintained
+[gtk-rs Linux installation guide](https://gtk-rs.org/gtk4-rs/stable/latest/book/installation_linux.html)
+lists the packages for Fedora, Debian, and Arch derivatives; use the equivalent
+vendor packages on other platforms.
+
 ```bash
-# Unit tests require a GTK4 / libadwaita display environment
 cargo test
 ```
+
+The test process can exit successfully without a display, but most tests then
+return before asserting widget behavior. Run it in a graphical session or with
+a display runner to exercise the GTK4 and libadwaita assertions.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines, local testing notes, and DCO requirements.
