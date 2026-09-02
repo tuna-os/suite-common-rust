@@ -15,6 +15,15 @@
 >
 > This repository is retained for historical reference only.
 
+## Overview & API Summary
+
+`suite-common-rust` (`suite_common_rs`) provides foundational GTK4 and libadwaita UI scaffolding routines:
+
+- `make_app(id: &str) -> adw::Application`: Constructs an `adw::Application` instance with automatic libadwaita initialization.
+- `make_header_bar() -> adw::HeaderBar`: Builds a standard header bar with an integrated hamburger menu (`About`).
+- `make_toolbar() -> gtk4::Box`: Builds a horizontal formatting toolbar with linked toggle buttons (`B`, `I`, `U`).
+- `is_dark_mode() -> bool`: Queries system color scheme preference via `adw::StyleManager`.
+
 ## Migration
 
 ```toml
@@ -28,9 +37,20 @@ Keep both dependencies on the same reviewed full commit SHA. Update the `rev`
 deliberately when adopting upstream changes so dependency review remains
 reproducible.
 
-## Testing
+## Testing & Contributing
+
+Install the stable Rust toolchain (including Cargo) and the native GTK4 and
+libadwaita development libraries before building. The maintained
+[gtk-rs Linux installation guide](https://gtk-rs.org/gtk4-rs/stable/latest/book/installation_linux.html)
+lists the packages for Fedora, Debian, and Arch derivatives; use the equivalent
+vendor packages on other platforms.
 
 ```bash
-# Unit tests require GTK4 / libadwaita display environment
 cargo test
 ```
+
+The test process can exit successfully without a display, but most tests then
+return before asserting widget behavior. Run it in a graphical session or with
+a display runner to exercise the GTK4 and libadwaita assertions.
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines, local testing notes, and DCO requirements.
