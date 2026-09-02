@@ -29,9 +29,13 @@
 ```toml
 # Instead of this crate, use:
 [dependencies]
-suite-common = { git = "https://github.com/tuna-os/gtk-office-suite", package = "suite-common" }
-suite-common-core = { git = "https://github.com/tuna-os/gtk-office-suite", package = "suite-common-core" }
+suite-common = { git = "https://github.com/tuna-os/gtk-office-suite", rev = "c3f3f2bead236afe75fe30871a6f624f4e671e08", package = "suite-common" }
+suite-common-core = { git = "https://github.com/tuna-os/gtk-office-suite", rev = "c3f3f2bead236afe75fe30871a6f624f4e671e08", package = "suite-common-core" }
 ```
+
+Keep both dependencies on the same reviewed full commit SHA. Update the `rev`
+deliberately when adopting upstream changes so dependency review remains
+reproducible.
 
 ## Testing & Contributing
 
