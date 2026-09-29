@@ -54,3 +54,5 @@ return before asserting widget behavior. Run it in a graphical session or with
 a display runner to exercise the GTK4 and libadwaita assertions.
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines, local testing notes, and DCO requirements.
+For observability and monitoring readiness assessment, see [docs/observability.md](docs/observability.md).
+
